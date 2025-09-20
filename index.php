@@ -1,1 +1,3 @@
-echo "oi";
+<?php
+
+    require 'routes.php';
