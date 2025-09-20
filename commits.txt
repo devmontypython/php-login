@@ -1,0 +1,9 @@
+routes.php
+AuthController.php
+login.php
+******************
+
+1) O index.php é o primeiro arquivo a ser aberto, e então encaminha o usuário ao sistema de roteamento do arquivo routes.php.
+2) routes.php  --  O roteamento é a forma que tenho para mapear os recursos da minha aplicação e direcionar o meu usuário à medida que ele precisa de um recurso. Ora, um dos recursos que o meu usuário vai precisar acessar é a tela de login.
+3) Ainda no arquivo routes.php, precisamos incluir os controladores quem são agentes que fazem o meio campo entre o model e a view. Ai então, faz-se a riquisição do controller e AuthController, depois instanciamos o controlador. Perceba que estamos usando o controlador que ainda não foi implementado.
+4) Vamos agora implementar a classe AuthController, então primeiro requisitamos 'models/user.php', ou seja, vamos usar recursos da classe User. Depois, crio a classe AuthController e dentro dela crio a função login() que é quem está sendo chamada lá no meu roteamento (routes.php). Essa função verifica se a requisição que está sendo feita no meu projeto é do tipo POST, então vai fazer o armazenamento de sessão aqui de usuário e de email. Mas, pra isso acontecer precisamos voltat lá no login.php e modificar a tag form acrescentando o método POST e também no input do email e no input da senha o atributo name='email' e name='senha' respectivamnete, pois vamos usar esse atributo name lá na classe AuthController.
