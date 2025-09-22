@@ -21,6 +21,9 @@
         case 'login':
             $authController->login(); // Chama o método de login do controlador de autenticação
             break;
+        case 'logout':
+            $authController->logout();
+            break;
         case 'register':
             $userController->register();
             break;
@@ -33,6 +36,10 @@
         case 'edit':
             $id = $_GET['id'];
             $userController->edit($id);
+            break;
+        case 'delete':
+            $id = $_GET['id'];
+            $userController->delete($id);
             break;
         default;
             $authController->login(); // Chama o método de logout do controlador de autenticação

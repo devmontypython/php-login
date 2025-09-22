@@ -49,4 +49,9 @@
         // Inclui a View que exibe a lista de usuários
         include 'views/list_users.php';
     }
+
+    public function delete($id) {
+        User::delete($id);
+        header('Location: index.php?action=list');
+    }
 }
