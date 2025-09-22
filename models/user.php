@@ -34,4 +34,31 @@ class User {
             $stmt->execute($data);
         }
 
+        public static function find($id) {
+
+            $conn = Database::getConnection();
+            $stmt = $conn->prepare("SELECT * FROM usuarios WHERE id = :id");
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public static function update($id, $data) {
+
+            $conn = Database::getConnection();
+            $stmt = $conn->prepare("UPDATE usuarios SET nome = :nome, email = :email, perfil = :perfil WHERE id = :id");
+
+            $data['id'] = $id;
+
+            $stmt->execute($data);
+        }
+
+        public static function all() {
+            // Obtém a conexão com o banco de dados
+            $conn = Database::getConnection();
+            // Executa uma consulta SQL simples para buscar todos os registros da tabela 'usuarios'
+            $stmt = $conn->query("SELECT * FROM usuarios");
+            // Retorna todos os resultados como um array associativo
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
 }
